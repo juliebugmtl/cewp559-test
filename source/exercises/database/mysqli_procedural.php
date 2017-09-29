@@ -1,5 +1,5 @@
 <?php
-// Author: Julie Martin
+// Author: Julie Martin, 2017
 
 $conn = mysqli_connect('mysql', 'root', 'root', 'CCE_PHPMySQL2');
 
