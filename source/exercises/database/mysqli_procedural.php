@@ -1,4 +1,6 @@
 <?php
+// Author: Julie Martin
+
 $conn = mysqli_connect('mysql', 'root', 'root', 'CCE_PHPMySQL2');
 
 if (!$conn) {
