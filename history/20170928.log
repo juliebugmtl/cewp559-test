@@ -1,0 +1,182 @@
+    1  ls -al
+    2  less README.portable 
+    3  ssh-keygen -t rsa -b 4096 -C "subs+github@juliemartin.org"
+    4  ls -al
+    5  ls -al ~/
+    6  ls -al ~/.ssh/
+    7  less 
+    8  less ~/.ssh/id_rsa.pub 
+    9  cat ~/.ssh/id_rsa.pub 
+   10  ls -al
+   11  cd
+   12  ls -al
+   13  cd My\ Documents/
+   14  ls -al
+   15  pwd
+   16  cd ..
+   17  pwd
+   18  ls -al
+   19  cd Desktop/
+   20  ls -al
+   21  mkdir cewp559
+   22  ls -al
+   23  cd cewp559/
+   24  ls -al
+   25  git clone git@github.com:majidfn/CEWP-559-fall-2017.git
+   26  ls -al
+   27  cd CEWP-559-fall-2017/
+   28  ls -al
+   29  cd slides
+   30  ls -al
+   31  cd ..
+   32  ls -al
+   33  cd database
+   34  ls -al
+   35  less 001_create.sql 
+   36  cd ..
+   37  ls -al
+   38  cd source
+   39  ls -al
+   40  less index.php 
+   41  less test_db.php 
+   42  cd ..
+   43  ls -al
+   44  less Vagrantfile 
+   45  cd build
+   46  ls -al
+   47  cd ..
+   48  less README.md 
+   49  clear
+   50  ls -al
+   51  docker-compose.exe build
+   52  exit
+   53  ls al
+   54  ls -al
+   55  cd Desktop/
+   56  ls -al
+   57  cd cewp559/
+   58  ls -al
+   59  cd CEWP-559-fall-2017/
+   60  docker-compose build
+   61  ls -al
+   62  docker-compose build
+   63  git pull
+   64  docker-compose build
+   65  ls -al
+   66  cat docker-compose.yml 
+   67  docker-compose build
+   68  docker
+   69  cd 
+   70  cd Desktop/
+   71  cd cewp559/CEWP-559-fall-2017/
+   72  docker-compose.exe build
+   73  docker-compose up
+   74  ls -al
+   75  docker-compose 
+   76  docker-compose up
+   77  docker-compose up -d
+   78  docker-compose up
+   79  docker-compose down
+   80  docker-compose up
+   81  docker-compose up
+   82  docker-compose down
+   83  docker-compose build
+   84  docker-compose up
+   85  docker-compose up
+   86  docker-compose build
+   87  exit
+   88  cd ~/Desktop/
+   89  cd cewp559/CEWP-559-fall-2017/
+   90  ls -al
+   91  docker ps
+   92  ls -al
+   93  winpty exec -it 1d28adc57089 bash
+   94  ls -al
+   95  clr
+   96  clear
+   97  git branch
+   98  git branch -a
+   99  git remote
+  100  git remote remove origin
+  101  git branch -a
+  102  git remote
+  103  git remote add origin git@github.com:juliebugmtl/cewp559-test.git
+  104  git remote
+  105  git remote add majid git@github.com:majidfn/CEWP-559-fall-2017.git
+  106  git remote
+  107  git pull majid master
+  108  git pull majid master
+  109  git fetch majid -a
+  110  git branch -a
+  111  git checkout 20170928
+  112  git branch -a
+  113  ls -al
+  114  cd source/
+  115  ls -al
+  116  cd exercises/
+  117  ls -al
+  118  ls -al
+  119  c d..
+  120  cd ..
+  121  cd ..
+  122  ls -al
+  123  cd ..
+  124  ls -al
+  125  cd ..
+  126  cd ..
+  127  cd /
+  128  ls -al
+  129  cd usr
+  130  ls -al
+  131  cd ..
+  132  cd etc
+  133  ls -al
+  134  cat profile
+  135  cd ~/Desktop/cewp559/CEWP-559-fall-2017/
+  136  ls -al
+  137  clear
+  138  clear
+  139  ls -al
+  140  cd source
+  141  ls -al
+  142  cd exercises
+  143  ls -al
+  144  cd database
+  145  ls -al
+  146  cd ..
+  147  cd ..
+  148  cd ..
+  149  ls -al
+  150  clear
+  151  git status
+  152  git diff source/exercises/database/mysqli_procedural.php
+  153  git add source/exercises/database/mysqli_procedural.php 
+  154  git status
+  155  git commit -m "Solution for Exercise 1 - MySQLi Procedural"
+  156  git config --global --edit
+  157  git config --global core.editor "nano"
+  158  git config --global --edit
+  159  git config --global core.editor "pico"
+  160  git config --global --edit
+  161  git config --global core.editor "vim"
+  162  git config --global --edit
+  163  git commit -m "Solution for Exercise 1 - MySQLi Procedural"
+  164  git push origin
+  165  git commit -m "Solution for Exercise 1 - MySQLi Procedural"
+  166  git commit -m "Solution for Exercise 1 - MySQLi Procedural"
+  167  git add source/exercises/database/mysqli_procedural.php 
+  168  git commit -m "Solution for Exercise 1 - MySQLi Procedural"
+  169  git push origin
+  170  git config --global --edit
+  171  git add source/exercises/database/mysqli_procedural.php 
+  172  git commit -m "Solution for Exercise 1 - MySQLi Procedural"
+  173  git push origin
+  174  git pull majid
+  175  git status
+  176  git add source/exercises/database/mysqli_procedural.php 
+  177  git commit -m "Solution for Exercise 2 for MySQLi Procedural"
+  178  git push origin
+  179  history
+  180  ls -al
+  181  mkdir history
+  182  history > history/20170928.log
