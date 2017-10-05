@@ -2,7 +2,9 @@
 
 require_once __DIR__.'/loader.php';
 
-$page = $_GET['page'];
+$paths = explode('/', $_SERVER['REQUEST_URI']);
+// var_dump($paths);
+$page = $paths[3];
 
 if(empty($page)){
     $page = 'index';
