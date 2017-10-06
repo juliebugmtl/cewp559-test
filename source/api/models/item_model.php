@@ -30,7 +30,7 @@ class ItemModel
         while ($item = $result->fetch_object('ItemModel')) {
             $items[] = $item;
         }
-
+        // Only interaction between the model and the view. Not public.
         $this->_data = $items;
     }    
 }
