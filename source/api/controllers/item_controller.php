@@ -15,7 +15,10 @@ class ItemController
      public function getOne($id){
         $this->model->getOne($id);
     }
-     public function create(){
-        $this->model->create();
+     public function create($json_data){
+     	// parse data
+     	// create a new model
+     	// save the model in the database
+        $this->model->save();
     }
 }
