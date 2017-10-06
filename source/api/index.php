@@ -3,8 +3,10 @@
 require_once __DIR__.'/loader.php';
 
 $routes = array_values(array_filter(explode('/', $_SERVER['REQUEST_URI'])));
+
 $path =  $routes[1];
 $id = $routes[2];
+$method = $_SERVER['REQUEST_METHOD'];
 
 // 
 // Database Connection
@@ -24,8 +26,12 @@ switch ($path) {
         $view = new ItemView($model);
         $controller = new ItemController($model);
 
-        if (!empty($id)) {
-            $controller->getOne($id);    
+        if($method == 'POST') {
+            var_dump($_POST);
+            //$controller->create();
+
+        } elseif (!empty($id)) {
+            $controller->getOne($id);
         } else {
             $controller->getAll();
         }
