@@ -9,3 +9,4 @@ $controller = new Controller($model);
 $view = new View($model);
 
 echo $view->output();
+echo $view->altoutput();

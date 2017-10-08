@@ -11,4 +11,9 @@ class View
     public function output(){
         return '<p><a href="index.php?action=clicked">' . $this->model->string . "</a></p>";
     }
+
+    public function altoutput(){
+        return '<p>' . "CLICKED!" . "</p>";
+    }
+
 }
