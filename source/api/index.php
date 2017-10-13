@@ -21,31 +21,40 @@ if ($mysqli->connect_errno) {
     exit;
 }
 
+try {
+    switch ($resource) {
+        case 'items':
+            $model = new ItemModel($mysqli);
+            $view = new ItemView($model);
+            $controller = new ItemController($model);
 
-switch ($resource) {
-    case 'items':
-        $model = new ItemModel($mysqli);
-        $view = new ItemView($model);
-        $controller = new ItemController($model);
+            if($method == 'POST'){
+                $controller->create($requestBody);
+            }elseif($method == 'GET' && !empty($id)){
+                $controller->getOne($id);
+            }elseif($method == 'GET'){
+                $controller->getAll();
+            }elseif($method == 'PUT') {
+                $controller->update($id, $requestBody);
+            }
 
-        if($method == 'POST'){
-            $controller->create($requestBody);
-        }elseif($method == 'GET' && !empty($id)){
-            $controller->getOne($id);
-        }elseif($method == 'GET'){
-            $controller->getAll();
-        }
+            echo $view->output();
+            break;
+            
+        case 'categories':
+            // $model = new CategoryModel($mysqli);
+            // $view = new CategoryView($model);
+            // $controller = new CategoryController($model);
 
-        echo $view->output();
-        break;
+            break;
         
-    case 'categories':
-        // $model = new CategoryModel($mysqli);
-        // $view = new CategoryView($model);
-        // $controller = new CategoryController($model);
+        default:
+            break;
+    }
 
-        break;
-    
-    default:
-        break;
+    // Must always deal with the header first!
+
+} catch (Exception $e) {
+    http_response_code($e->getCode());
+    echo $e->getMessage();
 }
