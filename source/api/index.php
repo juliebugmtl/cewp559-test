@@ -5,9 +5,10 @@ require_once __DIR__.'/loader.php';
 $pathParts = array_values(array_filter(explode('/', $_SERVER['REQUEST_URI'])));
 $resource =  $pathParts[1]; 
 $id = $pathParts[2];
+$action = $_GET['action'];
 
 $method = $_SERVER['REQUEST_METHOD'];
-$requestBody = json_decode(file_get_contents('php://input'));
+$requestBody = $_POST;
 
 
 // 
@@ -21,40 +22,39 @@ if ($mysqli->connect_errno) {
     exit;
 }
 
-try {
+try{
     switch ($resource) {
         case 'items':
-            $model = new ItemModel($mysqli);
-            $view = new ItemView($model);
-            $controller = new ItemController($model);
-
-            if($method == 'POST'){
-                $controller->create($requestBody);
-            }elseif($method == 'GET' && !empty($id)){
-                $controller->getOne($id);
-            }elseif($method == 'GET'){
-                $controller->getAll();
-            }elseif($method == 'PUT') {
-                $controller->update($id, $requestBody);
-            }
-
-            echo $view->output();
-            break;
-            
-        case 'categories':
-            // $model = new CategoryModel($mysqli);
-            // $view = new CategoryView($model);
-            // $controller = new CategoryController($model);
-
-            break;
+        $model = new ItemModel($mysqli);
+        $view = new ItemView($model);
+        $controller = new ItemController($model);
         
+        // Update is when user is POSTing to /items/:ID
+        if($method == 'POST' && !empty($id)){
+            
+        // Create a new entry is when POST to /items/
+        }elseif($method == 'POST' && empty($id)){
+            $controller->create($requestBody);
+            header("Location: http://localhost/api/items");
+
+        }elseif($action == 'newform'){
+            echo $view->createNew();
+
+        }elseif($method == 'GET' && !empty($id)){
+            $controller->getOne($id);
+
+        }elseif($method == 'GET' && empty($id)){
+            $controller->getAll();
+            echo $view->showAll();
+        }
+        
+        break;
+
         default:
-            break;
+        break;
     }
-
-    // Must always deal with the header first!
-
-} catch (Exception $e) {
+}catch(Exception $e){
     http_response_code($e->getCode());
     echo $e->getMessage();
 }
+    

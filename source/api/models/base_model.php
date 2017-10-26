@@ -16,17 +16,17 @@ class BaseModel
         // Your code here
     }
 
-    public function getOne($id){
-        $query = "SELECT * FROM {$this->TableName} WHERE ID = $id";
+    // public function getOne($id){
+    //     $query = "SELECT * FROM {$this->TableName} WHERE ID = $id";
 
-        $result = $this->db_connection->query($query);
+    //     $result = $this->db_connection->query($query);
         
-        if (!$result) {
-            printf("Error: %s\n", $this->db_connection->error);
-            return;
-        }
+    //     if (!$result) {
+    //         printf("Error: %s\n", $this->db_connection->error);
+    //         return;
+    //     }
         
-        $item = $result->fetch_object(this->ClassName);
-        $this->_data = $item;
-    }
+    //     $item = $result->fetch_object(this->ClassName);
+    //     $this->_data = $item;
+    // }
 }

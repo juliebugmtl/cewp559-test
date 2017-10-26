@@ -1,6 +1,6 @@
 <?php
 
-class ItemModel extends BaseModel
+class ItemModel //extends BaseModel
 {
     public $id;
     public $name;
@@ -37,18 +37,18 @@ class ItemModel extends BaseModel
         $this->_data = $items;
     }
 
-    // public function getOne($id){
-    //     $query = 'SELECT id, name, price, description FROM items WHERE ID = ' . $id;
-    //     $result = $this->db_connection->query($query);
+    public function getOne($id){
+        $query = 'SELECT id, name, price, description FROM items WHERE ID = ' . $id;
+        $result = $this->db_connection->query($query);
         
-    //     if (!$result) {
-    //         printf("Error: %s\n", $this->db_connection->error);
-    //         return;
-    //     }
+        if (!$result) {
+            printf("Error: %s\n", $this->db_connection->error);
+            return;
+        }
         
-    //     $item = $result->fetch_object('ItemModel');
-    //     $this->_data = $item;
-    // }
+        $item = $result->fetch_object('ItemModel');
+        $this->_data = $item;
+    }
 
     //
     // Save the payload as a new Item in to the Database
