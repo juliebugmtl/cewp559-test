@@ -61,8 +61,26 @@ class UserController
 
         $token = bin2hex(random_bytes(64));
 
-        // return $this->model->create($payload);
+        $this->model->storeToken($user->id, $token);
+
+        return array('token' => $token, 'isadmin' => $user->isadmin);
+        
     }
 
+    public function verify($headers) {
+
+        if (!array_key_exists('Authorization', $headers)) {
+            throw new Exception('`Authorization` should be provided.');
+        }
+
+        $token = explode(' ', $headers['Authorization'])[1];
+
+        $isValidToken = $this->model->verifyToken($token);
+
+        if (!$isValidToken) {
+            throw new Exception("Invalid or expired token.", 401);
+        }
+
+    }
 
 }

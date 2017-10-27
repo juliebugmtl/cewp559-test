@@ -29,6 +29,7 @@ $subresource = strtok('/');
 $method = $_SERVER['REQUEST_METHOD'];
 $requestBody = file_get_contents('php://input');
 $requestJSON = json_decode($requestBody);
+$requestHeaders = getallheaders();
 
 $filters = $_GET;
 $hasFilters = !empty($_GET);
@@ -45,6 +46,8 @@ if ($mysqli->connect_errno) {
     exit;
 }
 
+$userModel = new UserModel($mysqli);
+$userController = new UserController($userModel);
 
 try {
     // Make sure if we have any JSON data as input, it's valid, otherwise throw an exception
@@ -54,6 +57,9 @@ try {
 
     switch ($resource) {
         case 'items':
+
+        $userController->verify($requestHeaders);
+
         $model = new ItemModel($mysqli);
         $controller = new ItemController($model);
         
@@ -95,8 +101,7 @@ try {
 
         case 'users':
 
-        $userModel = new UserModel($mysqli);
-        $userController = new UserController($userModel);
+        $userController->verify($requestHeaders);
 
         if ($method == 'POST') {
 
@@ -106,9 +111,6 @@ try {
         break;
 
         case 'login':
-
-        $userModel = new UserModel($mysqli);
-        $userController = new UserController($userModel);
 
         if ($method == 'POST') {
 

@@ -28,4 +28,37 @@ class UserModel extends BaseModel
         return $result->fetch_object($this->ModelName);
         
     }
+
+    public function storeToken($userid, $token) {
+
+        $now = date("Y-m-d H:i:s");
+        $twoHours = date("Y-m-d H:i:s", strtotime('+2 hours'));
+
+        $query = "INSERT INTO tokens SET userid = $userid, token = '$token', " . 
+                 "lastUpdateDateTime = '$now' , " .
+                 "expirationDateTime = '$twoHours' ";
+        
+        error_log($query);
+
+        $result = $this->db_connection->query($query);
+
+
+    }
+
+    public function verifyToken($token) {
+
+        $query = "SELECT * FROM tokens WHERE token = '{$token}' AND " .
+                 "expirationDateTime > NOW()";
+
+        error_log($query);
+
+        $result = $this->db_connection->query($query);
+
+        if ($result->num_rows != 1) {
+            return false;
+        } 
+
+        return true;
+
+    }
 }
