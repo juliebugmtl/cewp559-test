@@ -1,0 +1,10 @@
+CREATE TABLE `CCE_PHPMySQL2`.`users` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(255) NULL,
+  `email` VARCHAR(255) NULL,
+  `password` VARCHAR(255) NULL,
+  `created` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
+  `last login` DATETIME NULL,
+  `isadmin` INT NULL DEFAULT 0,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `username_UNIQUE` (`username` ASC));

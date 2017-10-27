@@ -1,0 +1,8 @@
+POST localhost/api/users/
+
+{
+	"username": "user",
+	"password": "pass",
+	"email": "email@domain",
+	"isadmin": 1/0
+}
