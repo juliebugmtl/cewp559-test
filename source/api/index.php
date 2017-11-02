@@ -61,7 +61,7 @@ try {
     switch ($resource) {
         case 'items':
 
-        $userController->verify($requestHeaders);
+        // $userController->verify($requestHeaders);
 
 
         $model = new ItemModel($mysqli);
@@ -71,6 +71,7 @@ try {
             $data = $controller->upload($id, $_FILES['new_item_image']);
             
         } elseif ($method == 'POST') {
+            $userController->isAdmin();
             $data = $controller->create($requestJSON);
             
         } elseif ($method == 'GET' && !empty($id)) {
@@ -105,6 +106,7 @@ try {
 
 
         case 'users':
+
         if ($method == 'POST') {
             $data = $userController->create($requestJSON);   
         }
