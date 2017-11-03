@@ -11,13 +11,19 @@ final class CalculatorTest extends TestCase
         $this->assertFalse($e->isValid(), 'Email should contain @');    
     }
 
-    // An email should not hav any uppercase letter
+    // An email should not have any uppercase letter
     // this is for test purposes only!
     public function testUppercase()
     {
         $e = new Email('INFO@example.com');
         $this->assertFalse($e->isValid(), 'Email should only be lower case!');
     }
+
+    // public function testDomainExtension()
+    // {
+    //     $e = new Email('info@example.technology');
+    //     $this->assertFalse($e->isValid(), 'Domain extensions should be two or three letters.');
+    // }
 
     public function testMagicToString()
     {
