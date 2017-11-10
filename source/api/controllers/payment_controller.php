@@ -10,22 +10,22 @@ $stripe = array(
 class PaymentController
 {
 
-    // public function collect($payload)
-    // {
-    //     return $this->model->getAll();
-    // }
+    public function collect($payload)
+    {
 
-  $token  = $payload->stripeToken;
+        // var_dump($payload);
 
-  $customer = \Stripe\Customer::create(array(
-      'email' => $payload->email,
-      'source'  => $token
-  ));
+      $token  = $payload->stripeToken;
 
-  $charge = \Stripe\Charge::create(array(
-      'customer' => $customer->id,
-      'amount'   => $payload->amount,
-      'currency' => 'cad'
-  ));
+      $customer = \Stripe\Customer::create(array(
+          'email' => $payload->email,
+          'source'  => $token
+      ));
 
+      $charge = \Stripe\Charge::create(array(
+          'customer' => $customer->id,
+          'amount'   => $payload->amount,
+          'currency' => 'cad'
+      ));
+    }
 }

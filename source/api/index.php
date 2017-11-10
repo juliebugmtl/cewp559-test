@@ -120,9 +120,11 @@ try {
         break;        
 
         case 'payment':
-        $payment = new PaymentController();
-        $payment->collect($requestJSON);
-        
+        if ($method == 'POST') {
+            $payment = new PaymentController();
+            $payment->collect($requestJSON);
+        }
+
         break;
 
         case 'cart':
