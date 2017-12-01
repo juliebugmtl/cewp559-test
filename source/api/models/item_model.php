@@ -52,8 +52,7 @@ class ItemModel extends BaseModel
         }
         // Only interaction between the model and the view. Not public.
         $this->_data = $items;
-    }    
-
+    
         return $this->getOne($id);
     }
 

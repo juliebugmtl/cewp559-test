@@ -19,7 +19,7 @@ class CategoryController
      * 
      * You can add the rest of the functionality for the Controller HERE
      * OR
-     * You can ove the basic functionality to a `BaseController` class and extend the current class from that
+     * You can move the basic functionality to a `BaseController` class and extend the current class from that
      * 
      */
 }

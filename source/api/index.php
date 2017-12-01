@@ -2,16 +2,7 @@
 
 require_once __DIR__ . '/loader.php';
 
-<<<<<<< HEAD
-$routes = array_values(array_filter(explode('/', $_SERVER['REQUEST_URI'])));
-
-$path =  $routes[1];
-$id = $routes[2];
-$method = $_SERVER['REQUEST_METHOD'];
-=======
-
 error_log('API is starting!');
->>>>>>> 2239c3f2b14892e26494ec888dd8745910a17d6a
 
 /**
  * Path Parts:
@@ -140,11 +131,11 @@ try {
         $model = new CartModel($mysqli);
         $controller = new CartController($model);
 
-        if ($method == `POST`) {
+        if ($method == 'POST') {
 
             $data = $controller->addItem($user->id, $requestJSON);
 
-        } elseif ($method == `GET`) {
+        } elseif ($method == 'GET') {
 
             $data = $controller->getCart($user->id);
         }

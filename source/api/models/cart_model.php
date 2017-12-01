@@ -13,10 +13,10 @@ class CartModel extends BaseModel
 
     	$query = "INSERT INTO cart SET itemId = $itemId , userId = $userId";
 
-    	error_log("Query: $query");
+    	error_log("Add Item query: $query");
 
     	$result = $this->db_connection->query($query);
-        
+
         if (!$result) {
             throw new Exception("Database error: {$this->db_connection->error}", 500);
         }
@@ -25,10 +25,12 @@ class CartModel extends BaseModel
 
 
     public function getCartItems($userId) {
-    	// SELECT * FROM cart JOIN items ON cart.itemId = items.id WHERE userId = $userId
+    	// Raw query should be SELECT * FROM cart JOIN items ON cart.itemId = items.id WHERE userId = $userId
 
     	$join = 'JOIN items ON cart.itemId = items.id';
     	$where = "WHERE userId = $userId";
+
+        error_log("Get Cart Items query: $query");
 
     	return parent::getFiltered($join, $where);
     }
@@ -36,11 +38,11 @@ class CartModel extends BaseModel
 
     public function getCartTotal($userId) {
 
-    	// SELECT SUM(price) FROM cart JOIN items ON cart.itemId = items.id WHERE userId = $userId
+    	// Raw query should be SELECT SUM(price) FROM cart JOIN items ON cart.itemId = items.id WHERE userId = $userId
 
         $query = "SELECT SUM(price) AS total FROM cart JOIN items ON cart.itemId = items.id WHERE userId = $userId";
 
-        error_log("QUERY: $query");
+        error_log("Get Cart Total query: $query");
         
         $result = $this->db_connection->query($query);
 

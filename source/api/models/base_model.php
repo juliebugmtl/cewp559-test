@@ -28,14 +28,14 @@ class BaseModel
    
     
     /**
-     * getFiltered will retrieve all the records from the databse from $TableName based on the JOIN clause and WHERE Clause specified
+     * getFiltered will retrieve all the records from the database from $TableName based on the JOIN clause and WHERE Clause specified
      */
     public function getFiltered($join_clause = '', $where_clause = '')
     {
         $items = array();
         $query = "SELECT * FROM {$this->TableName} {$join_clause} {$where_clause}";
 
-        error_log("QUERY: $query");
+        error_log("Get Filtered Query: $query");
         
         $result = $this->db_connection->query($query);
 
