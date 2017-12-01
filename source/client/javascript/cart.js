@@ -8,7 +8,7 @@ function addToCart(itemId){
     }
 
     httpRequest('POST', '/cart', data, function (data) {
-        console.log('Item Added to the Cart Successfully');
+        console.log('Item added to the cart successfully.');
         showCart();
     });
 }

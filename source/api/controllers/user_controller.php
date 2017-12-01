@@ -77,6 +77,9 @@ class UserController
 
     public function getUserByToken($headers) {
         $this->verify($headers);
+
+        $token = explode(' ', $headers['Authorization'])[1];
+
         return $this->model->getUserByToken($token);
     }
 }

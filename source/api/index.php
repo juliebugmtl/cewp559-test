@@ -125,8 +125,23 @@ try {
         }
         break;        
 
+        // This endpoint is only available to logged-in users.
         case 'cart':
-        $user = $userController->getUserByToken(requestHeaders);
+
+        $user = $userController->getUserByToken($requestHeaders);
+
+        $model = new CartModel($mysqli);
+        $controller = new CartController($model);
+
+        if ($method == `POST`) {
+
+            $data = $controller->addItem($user->id, $requestJSON);
+
+        } elseif ($method == `GET`) {
+
+            $data = $controller->getCart($user->id);
+        }
+
         break;
 
         
