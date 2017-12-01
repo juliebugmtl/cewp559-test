@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>E-Commerce Project</title>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="./style.css" type="text/css" />
+	
+	<!-- Stripe -->
+	<script src="https://checkout.stripe.com/checkout.js"></script>
+</head>
+
+<body>
+
+	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+		<a class="navbar-brand" href="#">E-Commerce</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault"
+		 aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item"><a class="nav-link" href="#" onclick="showCategories()">Home</a></li>
+				<li class="nav-item"><a class="nav-link" href="#" onclick="showLogin()" id="nav_login">Login</a></li>
+				<li class="nav-item"><a class="nav-link" href="#"onclick="showCart()" id="nav_cart" style="display:none">Cart</a></li>
+				<li class="nav-item"><a class="nav-link" href="#"onclick="showNewItemForm()" id="nav_new_item" style="display:none">New Item</a></li>
+			</ul>
+			<span class="navbar-text pr-5" id="welcome_msg"></span>
+			<form class="form-inline my-2 my-lg-0">
+				<input class="form-control mr-sm-2" type="text" placeholder="Search" id="search_keyword" aria-label="Search">
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit"  onclick="search()">Search</button>
+			</form>
+		</div>
+	</nav>
+	<div class="jumbotron">
+		<div class="container"></div>
+	</div>
+	<div class="alert alert-success alert-dismissable" id="alert_success" style="display:none">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close" onclick="closeAlerts()">&times;</a>
+		<span id="text_success"></span>
+	</div>
+	<div class="alert alert-danger alert-dismissable" id="alert_warning" style="display:none">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close" onclick="closeAlerts()">&times;</a>
+		<span id="text_error"></span>
+	</div>	
+
+	<div id="list_categories_container" class="container span12"></div>
+	<div id="list_items_container" class="container span12"></div>
+	<div id="single_item_container" class="container span12"></div>
+
+	<div id="form_item_container" class="container span12">
+		<input type="hidden" id="item_id">
+		<div class="form-group">
+			<label for="usr">Title:</label>
+			<input type="text" class="form-control" id="item_title">
+		</div>
+		<div class="form-group">
+				<label for="usr">Categories:</label>
+				<span id="item_categories"></span>
+			</div>		
+		<div class="form-group">
+			<label for="pwd">Description:</label>
+			<textarea rows="5" cols="50" class="form-control" id="item_desc"></textarea>
+		</div>
+		<div class="form-group">
+			<label for="usr">Price:</label>
+			<input type="text" class="form-control" id="item_price">
+		</div>
+		<div class="form-group">
+				<label for="usr">Image:</label>
+				<input type="file" class="form-control" id="item_image">
+			</div>		
+		<button type="button" id="item_button" class="btn btn-success btn-block">Create New Item</button>
+	</div>
+	<div id="login_container" class="container span12">
+		<div class="form-group">
+			<label for="usr">Name:</label>
+			<input type="text" class="form-control" id="username">
+		</div>
+		<div class="form-group">
+			<label for="pwd">Password:</label>
+			<input type="password" class="form-control" id="password">
+		</div>
+		<button type="button" onclick="login(event)" class="btn btn-success btn-block">Login</button>
+	</div>
+	
+	<div id="cart_container" class="container span12"></div>		
+
+	<!-- E-Commerce project JS files -->
+	<script src="javascript/items.js"></script>
+	<script src="javascript/items_list.js"></script>
+	<script src="javascript/categories.js"></script>
+	<script src="javascript/cookies.js"></script>
+	<script src="javascript/cart.js"></script>
+	<script src="javascript/login.js"></script>
+	<script src="javascript/alerts.js"></script>
+	<script src="javascript/utilities.js"></script>
+	<script src="javascript/payment.js"></script>
+	<script src="javascript/navigation.js"></script>
+	<script src="javascript/init.js"></script>
+	<script src="javascript/stripe.js"></script>
+</body>
+
+</html>
