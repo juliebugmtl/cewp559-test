@@ -52,9 +52,24 @@ class CartModel extends BaseModel
         
         $cart = $result->fetch_object();
 
-        return $cart->total;
+        return round($cart->total, 2);
 
 
     }
+
+    public function emptyCart($userId) {
+
+    	$query = "DELETE FROM cart WHERE userId = $userId";
+
+    	error_log("Delete cart query: $query");
+
+    	$result = $this->db_connection->query($query);
+
+        if (!$result) {
+            throw new Exception("Database error: {$this->db_connection->error}", 500);
+        }
+
+    }
+
 
 }

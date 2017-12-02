@@ -17,6 +17,7 @@ class ItemModel extends BaseModel
     public function create($payload)
     {
         // Using sprintf to format the query in a nicer way
+        // Make sure to use HTML list values (loop through them to pull the values which are the categoryIds -- getListCategoryValues)
         $query = sprintf(
             "INSERT INTO items (name, price, description) VALUES ('%s', '%s', '%s')",
             $payload->name,

@@ -25,12 +25,17 @@ class CartController
 
     public function getCart($userId) {
 
-        $items = $this->model->getFiltered($userId);
+        $items = $this->model->getCartItems($userId);
         $total = $this->model->getCartTotal($userId);
 
-        return array(`items` => $items, 'total' => $total);
+        return array('items' => $items, 'total' => $total);
 
     }
 
+    public function emptyCart($userId) {
+
+        $this->model->emptyCart($userId);
+
+    }
 
 }
