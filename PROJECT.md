@@ -9,7 +9,7 @@ To evaluate students based on the materials we have learnded during this class, 
 
 The final project should have the following sections:
 
-- (05%) Categories view
+- [x] (05%) Categories view
 - (10%) Upon selection of a category, Products Catalog for that category
 - (05%) Single Product view
 - (05%) Add to Shopping Cart (Logged in User only)
