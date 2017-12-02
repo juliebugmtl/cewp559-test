@@ -24,9 +24,9 @@ The final project should have the following sections:
         - [ ] (02%) Update an existing item
         - [ ] (02%) Delete an exiting item
     - [ ] (06%) Categories Management:
-        - [ ](02%) Create New category + image
-        - [ ](02%) Update an existing category
-        - [ ](02%) Delete an existing category
+        - [ ] (02%) Create New category + image
+        - [ ] (02%) Update an existing category
+        - [ ] (02%) Delete an existing category
     - [ ] (03%) Create new user 
 - [ ] (10%) Unit-Tests, 10% code coverage for all Controllers and Models
 - Front-End: Is described below
