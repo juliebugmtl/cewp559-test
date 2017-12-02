@@ -5,7 +5,7 @@
 Endpoints:
 # E-Commerce project #
 
-To evaluate students based on the materials we have learnded during this class, a final E-Commrce project is defined. The whole functioning project is defined as the deliverables for the project. 
+To evaluate students based on the materials we have learned during this class, a final E-Commerce project is defined. The whole functioning project is defined as the deliverables for the project. 
 
 The final project should have the following sections:
 
@@ -26,7 +26,7 @@ The final project should have the following sections:
     - [ ] (06%) Categories Management:
         - [ ](02%) Create New category + image
         - [ ](02%) Update an existing category
-        - [ ](02%) Delete an exiting category
+        - [ ](02%) Delete an existing category
     - [ ] (03%) Create new user 
 - [ ] (10%) Unit-Tests, 10% code coverage for all Controllers and Models
 - Front-End: Is described below
