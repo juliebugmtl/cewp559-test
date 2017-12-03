@@ -1,5 +1,5 @@
 var handler = StripeCheckout.configure({
-    key: 'pk_test_EJeN6up1FufL37mUukLr9Qgc',
+    key: 'pk_test_CHVcfMnYLGNOf93388c1JSEG',
     image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
     locale: 'auto',
     token: function(token) {
@@ -14,8 +14,8 @@ var handler = StripeCheckout.configure({
   function stripeClickHandler(e){
     // Open Checkout with further options:
     handler.open({
-      name: 'PHP Class CEWP 559',
-      description: 'E-Commerce',
+      name: 'Julie\'s Shop',
+      description: 'E-Commerce Shopping',
       amount: cartAmountInCents
     });
     e.preventDefault();
