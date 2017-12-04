@@ -27,4 +27,8 @@ class OrderController
 
     }
 
+    public function getAll() {
+        return $this->model->getAll();
+    }
+
 }

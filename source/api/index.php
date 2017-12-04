@@ -163,9 +163,20 @@ try {
             $cart_controller->emptyCart($user->id);
         }
 
-
         break;
 
+        case 'orders':
+
+        $user = $userController->getUserByToken($requestHeaders);
+
+        $order_model = new OrderModel($mysqli);
+        $order_controller = new OrderController($order_model);
+
+        if ($method == 'GET' ) {
+            $data = $controller->getAll();
+        }
+
+        break;
         
         default:
         throw new Exception("$method is not implemented on: $baseURL ", 501); // 501: Not Implemented!
