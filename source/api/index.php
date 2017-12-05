@@ -147,6 +147,8 @@ try {
         case 'payment':
         $user = $userController->getUserByToken($requestHeaders);
 
+        $payment = new PaymentController();
+
         $cart_model = new CartModel($mysqli);
         $cart_controller = new CartController($cart_model);
 
@@ -156,9 +158,12 @@ try {
         if ($method == 'POST') {
 
             // TODO: The rest of the payment code should go here.
+
             $cart = $cart_controller->getCart($user->id);
             $order = $order_controller->newOrder($user->id, $cart);
             $order_controller->createOrderItems($order->id, $cart);
+            $payment->collect($requestJSON);
+
             // empty the cart for the user
             $cart_controller->emptyCart($user->id);
         }
