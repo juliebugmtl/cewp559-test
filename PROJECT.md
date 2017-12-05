@@ -15,7 +15,7 @@ The final project should have the following sections:
 - [x] (05%) Add to Shopping Cart (matches demo site)
 - [x] (05%) View Shopping Cart (Logged in User only)
 - [ ] (10%) Orders - Stored in DB in `Orders` and `OrderItems` tables (Logged in User only)
-- [ ] (10%) Payment gateway integration (Logged in User only)
+- [x] (10%) Payment gateway integration (Logged in User only)
 - [x] (15%) User Authentication
 - [ ] (10%) Search items - Full Text
 - [ ] (15%) Administration (Only Admin can access it)
