@@ -5,7 +5,7 @@ var handler = StripeCheckout.configure({
     token: function(token) {
       console.log("token Received:", token);
 
-      collectPayment(token.id, token.email, 2000);
+      collectPayment(token.id, token.email, cartAmountInCents);
       // You can access the token ID with `token.id`.
       // Get the token ID to your server-side code for use.
     }
