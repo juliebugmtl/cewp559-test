@@ -12,7 +12,7 @@ The final project should have the following sections:
 - [x] (05%) Categories view
 - [x] (10%) Upon selection of a category, Products Catalog for that category
 - [x] (05%) Single Product view
-- [x] (05%) Add to Shopping Cart (Logged in User only - add shows for logged out, but can't add)
+- [ ] (05%) Add to Shopping Cart (Logged in User only - still showing for logged out users)
 - [x] (05%) View Shopping Cart (Logged in User only)
 - [ ] (10%) Orders - Stored in DB in `Orders` and `OrderItems` tables (Logged in User only)
 - [ ] (10%) Payment gateway integration (Logged in User only)
